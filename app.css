@@ -1,0 +1,227 @@
+body {
+    background-color: rgb(196, 191, 189);
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    font-family: rubik;
+}
+
+.card {
+    list-style: none;
+    padding: 30px;
+    background-color: #f4f4f4;
+    color: #222;
+    display: grid;
+    text-align: center;
+}
+
+.card-title {
+    text-transform: uppercase;
+    font-size: 32px;
+    font-weight: normal;
+    margin-bottom: 0;
+}
+
+.card-subtitle {
+    font-weight: lighter;
+    color: #666;
+    margin-top: 5px;
+}
+
+#pokedex {
+    padding-inline-start: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    grid-gap: 20px;
+}
+
+.card-image {
+    height: 180px;
+    margin: 0 auto;
+}
+
+.pokemonContainer {
+    padding: 40px;
+    margin: 0 auto;
+}
+
+.card:hover {
+    animation: bounce 0.5s linear;
+    box-shadow: 12px 12px 2px 1px rgba(0, 0, 255, .2);
+}
+
+@keyframes bounce {
+    20% {
+        transform: translateY(-6px);
+    }
+
+    40% {
+        transform: translateY(0px);
+    }
+
+    80% {
+        transform: translateY(-2px);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+}
+
+@keyframes colorChange{
+    0% {background-color: red;}
+    15% {background-color: orangered;}
+    30% {background-color: yellow;}
+    45% {background-color: green;}
+    60% {background-color: blue;}
+    75% {background-color: purple;}
+    90% {background-color: gray;}
+    
+}
+
+/* cerca ed invia */
+input[type=text],
+select {
+    width: 270px;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid white;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+div {
+    border-radius: 5px;
+    background-color: rgb(196, 191, 189);
+    padding: 20px;
+}
+
+/*griglia bottoni*/
+.grid-container {
+    width: 85%;
+    margin: auto;
+    display: flex;
+    padding: 10px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+
+
+
+.button-tipo {
+
+    color: white;
+    width: 150px;
+    height: 55px;
+    font-size: 18px;
+    font-weight: bold;
+    border: 1px solid white;
+    padding: 5px;
+    text-align: center;
+    cursor: pointer;
+    transition: transform .1s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.button-tipo:hover{
+    box-shadow: 12px 12px 2px 1px rgba(0, 0, 255, .2);
+    /* animation: colorChange 0.5s linear; */
+    transform: scale(1.2);
+}
+
+.button-tipo-selected {
+
+    border: 4px solid rgb(11, 3, 247);
+    font-size: 24px;
+}
+
+.button-tipo-disabled {
+    pointer-events: none;
+    cursor: default;
+}
+.button-tipo:active{
+        transform: translateY(4px);
+}
+
+.bot-input{
+    color: black;
+    width: 100px;
+    height: 40px;
+    font-weight: bold;
+    padding: 5px;
+    cursor:pointer;
+    border: 1px solid black;
+}
+.bot-input-2{
+    color: black;
+    width: 100px;
+    height: 40px;
+    font-weight: bold;
+    padding: 5px;
+    cursor:pointer;
+    border: 1px solid black;
+    background: linear-gradient(
+        90deg,
+        rgba(255, 0, 0, 1) 0%,
+        rgba(255, 154, 0, 1) 10%,
+        rgba(208, 222, 33, 1) 20%,
+        rgba(79, 220, 74, 1) 30%,
+        rgba(63, 218, 216, 1) 40%,
+        rgba(47, 201, 226, 1) 50%,
+        rgba(28, 127, 238, 1) 60%,
+        rgba(95, 21, 242, 1) 70%,
+        rgba(186, 12, 248, 1) 80%,
+        rgba(251, 7, 217, 1) 90%,
+        rgba(255, 0, 0, 1) 100%
+    );
+}
+.bot-input-3{
+    color: black;
+    width: 100px;
+    height: 40px;
+    font-weight: bold;
+    padding: 5px;
+    cursor:pointer;
+    border: 1px solid black;
+    background-color: white;
+}
+
+.H1{
+    text-align: center;
+    font-weight: bold;
+}
+
+.H2{
+    text-align: center;
+    font-weight: bold;
+}
+
+.contenitore{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 80%;
+    margin:auto;
+}
+
+.rigaInput{
+    width: 60%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+@media screen and (max-width: 992px) {
+    .rigaInput {
+      flex-direction: column;
+    }
+    .button-tipo {
+        width: 120px;
+        height: 50px;
+    }
+  }

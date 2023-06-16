@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+  <meta charset="UFT-8">
+  <meta name="viewport" content="width=device-width,
+        initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatile" content="ie-edge">
+  <title>Pokedex veloce</title>
+  <link rel="icon" type="image/x-icon" href="./favicon.ico">
+  <link rel="stylesheet" href="app.css" />
+  <link href="https://fonts.googleapis.com/css?family=Rubik&display=swap" rel="stylesheet" />
+
+</head>
+
+<style>
+</style>
+
+<body>
+
+  <div>
+    <h1 class="H1">POKEDEX VELOCE</h1>
+
+    <div class="contenitore">
+      
+      <h2 class="H2" for="fname">Nome/Tipo del pokemon</h2>
+      <div class="rigaInput">
+      
+      <input class="bot-input" type="button" name="invio" value="invia nome" onclick="leggi()">
+      <input type="text" id="fname" name="firstname" placeholder="Cerca il pokemon o il tipo di pokemon">
+      <input class="bot-input-2" type="button" name="invio" value="invia tipo" onclick="leggiTipo()">
+    </div>
+      <input class="bot-input-3" type="button" name="daCapo" value="reset" onclick="capo()">
+    
+    </div>
+
+  </div>
+
+  <div id="listaTipi" class="grid-container"></div>
+  <!-- non legge tipo -->
+
+
+  <div class="container">
+
+    <ol id="pokedex"></ol>
+  </div>
+  <script src="app.js"></script>
+</body>
+
+</html>
