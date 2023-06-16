@@ -1,8 +1,6 @@
 const pokedex = document.getElementById("pokedex")
 const listaTipi = document.getElementById("listaTipi")
 
-
-
 var newPoke = [];
 var selezionato = 0;
 const loader = document.getElementById("caricamento");
@@ -178,36 +176,13 @@ const displayPokemon = (pokemon) => {
 }
 fetchPokemon();
 
-const search = () => {
-    const searchbox = document.getElementById("search-item").value.toUpperCase();
-    const storeitem = document.getElementById("product-list")
-    const prodotto = document.querySelectorAll(".product")
-    const pname = document.getElementsByTagName("h2")
-
-    for (var i = 0; i < pname.length; i++) {
-        let match = product[i].getElementsByTagName('h2')[0];
-    }
-
-    if (match) {
-        let textvalue = match.textContent || match.innerHTML
-
-        if (textvalue.toUpperCase().indexOf(searchbox) > -1) {
-            product[i].style.display = "";
-        } else {
-            product[i].style.display = "none";
-        }
-    }
-}
 
 function leggi() {
     let dato;
     let pokemonFiltrati;
 
-    dato = document.getElementById("fname");
-
-
-    pokemonFiltrati = newPoke.filter((p) => p.name.includes(dato.value))
-
+    dato = document.getElementById("fname").value.toLowerCase();
+    pokemonFiltrati = newPoke.filter((p) => p.name.includes(dato))
     displayPokemon(pokemonFiltrati)
 }
 
@@ -219,11 +194,8 @@ function leggiTipo() {
     let dato;
     let pokemonFiltrati;
 
-    dato = document.getElementById("fname");
-
-
-    pokemonFiltrati = newPoke.filter((p) => p.type.includes(dato.value))
-
+    dato = document.getElementById("fname").value.toLowerCase();
+    pokemonFiltrati = newPoke.filter((p) => p.type.includes(dato))
     displayPokemon(pokemonFiltrati)
 }
 
@@ -232,20 +204,15 @@ function leggiTipo() {
 const displayTipi = () => {
     arrayTipi.forEach(
         (tipo) => {
-
             var btn = document.createElement("DIV");
             btn.setAttribute("id", "btn-" + tipo.name);
             btn.innerHTML = tipo.name;
             btn.setAttribute("style", "background-color:" + tipo.color);
-
-
             btn.className = "button-tipo"
             btn.addEventListener("click", () => {
-                const tipiselezionati = arrayTipi.filter((t) => t.selected);
                 selezioneTipo(tipo.name);
             });
             document.getElementById("listaTipi").appendChild(btn);
-
         }
     )
 
@@ -254,11 +221,8 @@ displayTipi();
 
 function selezioneTipo(nomeTipo) {
 
-
     const index = arrayTipi.findIndex(tipo => tipo.name == nomeTipo);
     let variabile = arrayTipi[index]
-
-
     arrayTipi[index] = { ...variabile, selected: variabile.selected = !variabile.selected }
     variabile = arrayTipi[index]
     const btn = document.getElementById("btn-" + nomeTipo)
@@ -269,7 +233,6 @@ function selezioneTipo(nomeTipo) {
         btn.classList.add("button-tipo-selected")
         selezionato++;
     }
-
     if (selezionato == 2) {
         arrayTipi.forEach(tipo => {
             if (!tipo.selected) {
@@ -278,10 +241,8 @@ function selezioneTipo(nomeTipo) {
                 btnTipo.classList.add("button-tipo-disabled")
             }
         });
-
     } else if (selezionato < 2) {
         arrayTipi.forEach(tipo => {
-
             const btnTipo = document.getElementById("btn-" + tipo.name)
 
             if (btnTipo.classList.contains("button-tipo-disabled")) {
@@ -312,21 +273,4 @@ function selezioneTipo(nomeTipo) {
     } else if (pokemonFiltrati.length > 0) {
         displayPokemon(pokemonFiltrati)
     }
-
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
