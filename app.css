@@ -242,6 +242,7 @@ select {
     justify-content: center;
     position: absolute;
     bottom: 20%;
+    visibility: hidden;
 
 }
 
@@ -287,4 +288,8 @@ select {
   100%{
     transform: rotate(360deg);
   }
+}
+
+.displayLoading{
+    visibility: visible;
 }

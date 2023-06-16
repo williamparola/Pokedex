@@ -5,6 +5,7 @@ const listaTipi = document.getElementById("listaTipi")
 
 var newPoke = [];
 var selezionato = 0;
+const loader = document.getElementById("caricamento");
 
 const arrayTipi = [{
 
@@ -134,8 +135,15 @@ const arrayTipi = [{
 
 }]
 
+const showLoading = () => {
+    loader.classList.add("displayLoading")
+}
+const hideLoading = () => {
+    loader.classList.remove("displayLoading")
+}
 
 const fetchPokemon = () => {
+    showLoading();
     const promises = [];
     for (let i = 1; i <= 251; i++) {
         const url = `https://pokeapi.co/api/v2/pokemon/${i}`;
@@ -149,6 +157,7 @@ const fetchPokemon = () => {
             image: data.sprites['front_default'],
             type: data.types.map((type) => type.type.name)
         }));
+        hideLoading();
         displayPokemon(newPoke);
     });
 };
