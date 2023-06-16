@@ -5,10 +5,6 @@ const listaTipi = document.getElementById("listaTipi")
 
 var newPoke = [];
 var selezionato = 0;
-var selezionato2 = 0;
-var occupato1 = 0;
-var occupato2 = 0;
-var stessoBottone = 0;
 
 const arrayTipi = [{
 
@@ -268,10 +264,10 @@ function selezioneTipo(nomeTipo) {
     if (selezionato == 2) {
         arrayTipi.forEach(tipo => {
             if (!tipo.selected) {
-                
+
                 const btnTipo = document.getElementById("btn-" + tipo.name)
                 btnTipo.classList.add("button-tipo-disabled")
-            } 
+            }
         });
 
     } else if (selezionato < 2) {
@@ -301,13 +297,13 @@ function selezioneTipo(nomeTipo) {
         }
     })
 
-    
-    if(pokemonFiltrati.length==0){
+
+    if (pokemonFiltrati.length == 0) {
         capo();
-    }else if(pokemonFiltrati.length>0){
+    } else if (pokemonFiltrati.length > 0) {
         displayPokemon(pokemonFiltrati)
     }
-    
+
 }
 
 
