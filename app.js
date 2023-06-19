@@ -105,23 +105,23 @@ const arrayTipi = [{
 
 },
 {
+    "name": "fighting",
+    "color": "#e34902",
+    "selected": false
+
+},
+{
 
     "name": "ground",
     "color": "#c94000",
     "selected": false
+
 
 },
 {
 
     "name": "rock",
     "color": "#9c3302",
-    "selected": false
-
-},
-{
-
-    "name": "fighting",
-    "color": "#e34902",
     "selected": false
 
 },
@@ -143,7 +143,7 @@ const hideLoading = () => {
 const fetchPokemon = () => {
     showLoading();
     const promises = [];
-    for (let i = 1; i <= 251; i++) {
+    for (let i = 1; i <= 1010; i++) {
         const url = `https://pokeapi.co/api/v2/pokemon/${i}`;
         promises.push(fetch(url).then((res) => res.json()));
     }
