@@ -297,19 +297,39 @@ $(":button").click(function(){
     
     var jj = JSON.stringify(data);
 
+    // fetch("http://localhost:8080/api/pokemon", {
+    //     method: 'post',
+    //     body: jj,
+    //     headers: {
+    //         'Accept': 'application/json',
+    //         'Content-Type': 'application/json'
+    //     }
+    // }).then((response) => {
+    //     console.log(response)
+    //     return response.json()
+    // }).then((res) => {
+    //     if (res.status === 201) {
+    //         console.log("Post successfully created!")
+    //     }
+    // }).catch((error) => {
+    //     console.log(error)
+    //     alert('Failed adding pokemon ' );
+    // })
+
     $.ajax({
-        type: "POST",
+        method: "POST",
         url:"http://localhost:8080/api/pokemon",
         data:jj,
-        Headers:{
-            'Accept': 'application/json',
-            'Content-type': 'application/json'
-        },
+        contentType : 'application/json',
         success: function(data) {
             if (data.status == 'OK')
                 alert('Pokemon has been added');
             else
                 alert('Failed adding person: ' + data.status + ', ' + data.errorMessage);
-        }
+        },
+        error: function(data) {
+            
+                alert('Failed adding person: ' + data.status + ', ' + data.errorMessage);
+        },
     });
 });
