@@ -143,7 +143,7 @@ const hideLoading = () => {
 const fetchPokemon = () => {
     showLoading();
     const promises = [];
-    for (let i = 1; i <= 1010; i++) {
+    for (let i = 1; i <= 10; i++) {
         const url = `https://pokeapi.co/api/v2/pokemon/${i}`;
         promises.push(fetch(url).then((res) => res.json()));
     }
@@ -274,3 +274,42 @@ function selezioneTipo(nomeTipo) {
         displayPokemon(pokemonFiltrati)
     }
 }
+
+$(":button").click(function(){
+
+
+    let datoNome;
+    let datoTipo;
+
+    datoNome = document.getElementById("datiApiJavaName").value.toLowerCase();
+    datoTipo = document.getElementById("datiApiJavaType").value.toLowerCase();
+
+    console.log(datoNome, datoTipo);
+
+    //const Url='http://localhost:8080/api/pokemon';
+    const data={
+        name:datoNome,
+        type:datoTipo
+    }
+
+
+
+    
+    var jj = JSON.stringify(data);
+
+    $.ajax({
+        type: "POST",
+        url:"http://localhost:8080/api/pokemon",
+        data:jj,
+        Headers:{
+            'Accept': 'application/json',
+            'Content-type': 'application/json'
+        },
+        success: function(data) {
+            if (data.status == 'OK')
+                alert('Pokemon has been added');
+            else
+                alert('Failed adding person: ' + data.status + ', ' + data.errorMessage);
+        }
+    });
+});
